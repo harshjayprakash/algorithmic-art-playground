@@ -15,4 +15,8 @@ public abstract class Program {
     public static boolean isInitialised() {
         return initialised;
     }
+
+    public static void start() {
+        if (!initialised) { return; }
+    }
 }
