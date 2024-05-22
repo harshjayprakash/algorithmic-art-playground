@@ -1,4 +1,7 @@
 package winchester.osmium.presentation.windows;
 
-public class EditorFrame {
+import javax.swing.JFrame;
+
+public class EditorFrame extends JFrame {
+    
 }
