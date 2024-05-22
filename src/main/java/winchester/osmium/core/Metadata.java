@@ -14,11 +14,22 @@ public class Metadata {
     private Metadata() { }
 
     private String appTitle;
+    private String appVersion;
+
     public String getAppTitle() {
         return this.appTitle;
+    }
+
+    public String getAppVersion() {
+        return this.appVersion;
     }
 
     public void setAppTitle(String appTitle) {
         this.appTitle = appTitle;
     }
+
+    public void setAppVersion(String appVersion) {
+        this.appVersion = appVersion;
+    }
+
 }
