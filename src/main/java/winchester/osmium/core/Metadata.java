@@ -12,4 +12,13 @@ public class Metadata {
     private static Metadata instance;
 
     private Metadata() { }
+
+    private String appTitle;
+    public String getAppTitle() {
+        return this.appTitle;
+    }
+
+    public void setAppTitle(String appTitle) {
+        this.appTitle = appTitle;
+    }
 }
