@@ -1,5 +1,9 @@
 package winchester.osmium.core;
 
+import javax.swing.*;
+
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatLightLaf;
 public abstract class Program {
     private static boolean initialised = false;
 
@@ -8,6 +12,17 @@ public abstract class Program {
 
         Metadata.getInstance().setAppTitle("Generative Art Playground");
         Metadata.getInstance().setAppVersion("1.0");
+
+        FlatDarkLaf.setup();
+
+        try {
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        }
+        catch (Exception error) {
+            System.err.println("Failed to initialise Laf: " + error.getMessage());
+        }
+
+        System.setProperty("apple.laf.useScreenMenuBar", "true");
 
         initialised = true;
     }
