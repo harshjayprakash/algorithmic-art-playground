@@ -15,6 +15,7 @@ public class Metadata {
 
     private String appTitle;
     private String appVersion;
+    private boolean appDarkTheme;
 
     public String getAppTitle() {
         return this.appTitle;
@@ -22,6 +23,14 @@ public class Metadata {
 
     public String getAppVersion() {
         return this.appVersion;
+    }
+
+    public boolean appInDarkTheme() {
+        return this.appDarkTheme;
+    }
+
+    public void toggleDarkTheme() {
+        this.appDarkTheme = !this.appDarkTheme;
     }
 
     public void setAppTitle(String appTitle) {
