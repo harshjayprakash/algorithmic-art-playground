@@ -1,5 +1,8 @@
 package winchester.osmium.core;
 
+import java.io.InputStream;
+import java.net.URL;
+
 import javax.swing.*;
 
 import com.formdev.flatlaf.FlatDarkLaf;
@@ -14,6 +17,7 @@ public abstract class Program {
         Metadata.getInstance().setAppVersion("1.0");
 
         FlatDarkLaf.setup();
+        FlatLightLaf.setup();
 
         try {
             UIManager.setLookAndFeel(new FlatLightLaf());
