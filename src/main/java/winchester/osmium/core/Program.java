@@ -7,6 +7,9 @@ import javax.swing.*;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+
+import winchester.osmium.presentation.windows.EditorFrame;
+
 public abstract class Program {
     private static boolean initialised = false;
 
@@ -37,5 +40,10 @@ public abstract class Program {
 
     public static void start() {
         if (!initialised) { return; }
+
+        EditorFrame window = new EditorFrame();
+        window.setVisible(true);
+    }
+
     }
 }
