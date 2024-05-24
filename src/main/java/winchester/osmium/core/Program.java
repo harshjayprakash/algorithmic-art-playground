@@ -45,5 +45,7 @@ public abstract class Program {
         window.setVisible(true);
     }
 
+    public static InputStream getProgramIconPath() {
+        return Program.class.getResourceAsStream("/resources/icon.png");
     }
 }
