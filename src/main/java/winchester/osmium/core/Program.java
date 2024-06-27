@@ -1,7 +1,6 @@
 package winchester.osmium.core;
 
 import java.io.InputStream;
-import java.net.URL;
 
 import javax.swing.*;
 
