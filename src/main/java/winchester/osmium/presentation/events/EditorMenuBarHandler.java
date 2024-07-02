@@ -1,7 +1,8 @@
 package winchester.osmium.presentation.events;
 
-import com.formdev.flatlaf.FlatDarkLaf;
-import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import com.formdev.flatlaf.themes.FlatMacLightLaf;
+import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import winchester.osmium.core.Metadata;
 import winchester.osmium.presentation.components.EditorMenuBar;
@@ -21,6 +22,7 @@ public class EditorMenuBarHandler implements ActionListener {
     private final JLabel statusLabel;
     private String currentTextFile;
 
+    @Contract(pure = true)
     public EditorMenuBarHandler(EditorMenuBar menuBar, JTextArea editableTextArea, JLabel statusLabel) {
         super();
         this.menuBar = menuBar;
@@ -113,10 +115,10 @@ public class EditorMenuBarHandler implements ActionListener {
     private void changeTheme(@NotNull ActionEvent e) {
         try {
             if (Metadata.getInstance().appInDarkTheme()) {
-                UIManager.setLookAndFeel(new FlatLightLaf());
+                UIManager.setLookAndFeel(new FlatMacLightLaf());
             }
             else {
-                UIManager.setLookAndFeel(new FlatDarkLaf());
+                UIManager.setLookAndFeel(new FlatMacDarkLaf());
             }
             Metadata.getInstance().toggleDarkTheme();
         }

@@ -7,6 +7,7 @@ import javax.swing.*;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 
+import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import winchester.osmium.presentation.windows.EditorFrame;
 
 public abstract class Program {
@@ -22,7 +23,7 @@ public abstract class Program {
         FlatLightLaf.setup();
 
         try {
-            UIManager.setLookAndFeel(new FlatLightLaf());
+            UIManager.setLookAndFeel(new FlatMacLightLaf());
         }
         catch (Exception error) {
             System.err.println("Failed to initialise Laf: " + error.getMessage());

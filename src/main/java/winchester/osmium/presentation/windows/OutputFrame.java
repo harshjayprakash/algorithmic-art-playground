@@ -16,17 +16,11 @@ public class OutputFrame extends JFrame {
         this.inputCode = code;
 
         this.initialiseComponents();
-        this.initialiseHandlers();
     }
 
     private void initialiseComponents() {
         this.drawingCanvas = new OutputCanvas(inputCode);
-        this.drawingCanvas.runLexericalAnalysis();
         this.add(this.drawingCanvas);
-    }
-
-    private void initialiseHandlers() {
-
     }
 
 }

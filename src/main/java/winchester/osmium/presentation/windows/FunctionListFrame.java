@@ -3,7 +3,6 @@ package winchester.osmium.presentation.windows;
 import javax.swing.*;
 
 public class FunctionListFrame extends JFrame {
-    private static boolean running;
     private JScrollPane scrollPane;
     private JTextArea textArea;
 
@@ -12,7 +11,6 @@ public class FunctionListFrame extends JFrame {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(800, 600);
         this.setTitle("Functions List");
-        running = true;
 
         this.initialiseComponents();
         this.initialiseHandlers();
@@ -41,9 +39,4 @@ public class FunctionListFrame extends JFrame {
     private void initialiseHandlers() {
 
     }
-
-    public static boolean isRunning() {
-        return running;
-    }
-
 }
