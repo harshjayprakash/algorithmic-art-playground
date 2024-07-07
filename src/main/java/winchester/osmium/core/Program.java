@@ -44,8 +44,4 @@ public abstract class Program {
         EditorFrame window = new EditorFrame();
         window.setVisible(true);
     }
-
-    public static InputStream getProgramIconPath() {
-        return Program.class.getResourceAsStream("/resources/icon.png");
-    }
 }
