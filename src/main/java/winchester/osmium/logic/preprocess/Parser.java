@@ -19,9 +19,7 @@ public class Parser {
     public void tokensToStatements() {
         Statement statement = new Statement();
         for (Token token : tokens) {
-
             statement.addToken(token);
-
             if (token.getTokenType() == TokenType.SEMICOLON
                     || token.getTokenType() == TokenType.DO
                     || token.getTokenType() == TokenType.THEN
@@ -39,7 +37,12 @@ public class Parser {
                     statement.setStatementType(statementType);
                 }
             }
+
+            if (statement.getStatementType() == StatementType.UNCLASSIFIED) {
+                statement.matchFunctionalTokenStructure();
+            }
         }
+
     }
 
     public Statement[] getParsedStatements() {

@@ -1,24 +1,36 @@
 package winchester.osmium.logic.env;
 
+import winchester.osmium.logic.def.VariableObject;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Optional;
 
 public class RuntimeEnvironment {
-    HashMap<String, Integer> runtimeVariablesList;
+    ArrayList<VariableObject<Integer>> runtimeVariables;
     
     public RuntimeEnvironment() {
-        runtimeVariablesList = new HashMap<>();
+        this.runtimeVariables = new ArrayList<>();
     }
 
-    public void addVariable(String symbol, int value) {
-        runtimeVariablesList.put(symbol, value);
+    public void addOrUpdateVariable(String symbol, int value) {
+        for (VariableObject<Integer> variable : runtimeVariables) {
+            if (variable.getName().equalsIgnoreCase(symbol)) {
+                variable.setValue(value);
+                return;
+            }
+        }
+        this.runtimeVariables.add(new VariableObject<>(symbol, value));
     }
 
     public Optional<Integer> getVariableValue(String symbol) {
-        if (runtimeVariablesList.containsKey(symbol)) {
-            return Optional.of(runtimeVariablesList.get(symbol));
+        for (VariableObject<Integer> variable : runtimeVariables) {
+            if (variable.getName().equalsIgnoreCase(symbol)) {
+                return Optional.of(variable.getValue());
+            }
         }
         return Optional.empty();
     }
+    
 
 }

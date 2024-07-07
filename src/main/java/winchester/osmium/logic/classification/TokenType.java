@@ -22,6 +22,8 @@ public enum TokenType {
     MINUS("-"),
     STAR("*"),
     SLASH("/"),
+    GREATER_THAN(">"),
+    LESS_THAN("<"),
 
     // KEYWORDS
     FOR("FOR"),

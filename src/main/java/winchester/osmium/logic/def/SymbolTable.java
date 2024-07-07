@@ -3,31 +3,32 @@ package winchester.osmium.logic.def;
 import java.util.ArrayList;
 
 public class SymbolTable {
-
     public static SymbolTable instance = new SymbolTable();
 
-    ArrayList<String> functionList = new ArrayList<>() {{
-        add("Move"); add("Position");
+    private final ArrayList<FunctionObject> functionList = new ArrayList<>() {{
+        add(new FunctionObject("Move", 2));
+        add(new FunctionObject("Position", 2));
+        add(new FunctionObject("Compass", 1));
     }};
 
-    ArrayList<String> constantsList = new ArrayList<>() {{
-        add("North"); add("South"); add("East"); add("West");
+    private final ArrayList<VariableObject<Integer>> constantsList = new ArrayList<>() {{
+        add(new VariableObject<>("North", 0));
+        add(new VariableObject<>("East", 1));
+        add(new VariableObject<>("South", 2));
+        add(new VariableObject<>("West", 3));
     }};
     
-    private SymbolTable() {
-        
-    }
+    private SymbolTable() { }
 
     public static SymbolTable getInstance() {
         return instance;
     }
 
-    public String[] getFunctionList() {
-        return this.functionList.toArray(new String[0]);
+    public ArrayList<FunctionObject> getFunctionList() {
+        return this.functionList;
     }
 
-    public String[] getConstantsList() {
-        return this.constantsList.toArray(new String[0]);
+    public ArrayList<VariableObject<Integer>> getConstantsList() {
+        return this.constantsList;
     }
-
 }
