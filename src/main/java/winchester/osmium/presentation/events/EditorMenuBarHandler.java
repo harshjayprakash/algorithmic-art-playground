@@ -7,27 +7,34 @@ import org.jetbrains.annotations.NotNull;
 import winchester.osmium.core.Metadata;
 import winchester.osmium.presentation.components.EditorMenuBar;
 import winchester.osmium.presentation.windows.AboutFrame;
+import winchester.osmium.presentation.windows.FontChangerFrame;
 import winchester.osmium.presentation.windows.FunctionListFrame;
 import winchester.osmium.presentation.windows.OutputFrame;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.io.*;
 
 public class EditorMenuBarHandler implements ActionListener {
     private final EditorMenuBar menuBar;
     private final JTextArea textArea;
+    private final JTextArea lineNumbers;
     private final JLabel statusLabel;
     private String currentTextFile;
+    private String currentFontFamily;
+    private int currentFontSize;
 
     @Contract(pure = true)
-    public EditorMenuBarHandler(EditorMenuBar menuBar, JTextArea editableTextArea, JLabel statusLabel) {
+    public EditorMenuBarHandler(EditorMenuBar menuBar, JTextArea editableTextArea, JTextArea lineNumbersTextArea,
+                                JLabel statusLabel) {
         super();
         this.menuBar = menuBar;
         this.textArea = editableTextArea;
+        this.lineNumbers = lineNumbersTextArea;
         this.statusLabel = statusLabel;
+        this.currentFontFamily = "monospaced";
+        this.currentFontSize = 14;
         this.currentTextFile = "null";
     }
 
@@ -50,6 +57,18 @@ public class EditorMenuBarHandler implements ActionListener {
                 return;
             case "CLOSE_DOCUMENT":
                 this.closeDocument();
+                return;
+            case "FONT_SIZE_DECREASE":
+                this.updateFontSize(false);
+                return;
+            case "FONT_SIZE_INCREASE":
+                this.updateFontSize(true);
+                return;
+            case "RESET_FONT":
+                this.resetFontSettings();
+                return;
+            case "CHANGE_FONT":
+                this.updateFont();
                 return;
             case "CHECK_SYNTAX":
             case "RUN_AND_SAVE_OUTPUT":
@@ -185,5 +204,38 @@ public class EditorMenuBarHandler implements ActionListener {
     private void displayAbout() {
         AboutFrame aboutFrame = new AboutFrame();
         aboutFrame.setVisible(true);
+    }
+
+    private void updateFontSize(boolean increase) {
+        if (increase) {
+            this.currentFontSize += 2;
+        }
+        else {
+            this.currentFontSize -= 2;
+        }
+        textArea.setFont(new Font(this.currentFontFamily, Font.PLAIN, this.currentFontSize));
+        lineNumbers.setFont(new Font(this.currentFontFamily, Font.PLAIN, this.currentFontSize));
+    }
+
+    private void updateFont() {
+        FontChangerFrame fontChangerFrame = new FontChangerFrame(this.currentFontFamily);
+        fontChangerFrame.setVisible(true);
+
+        fontChangerFrame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                EditorMenuBarHandler.this.currentFontFamily = fontChangerFrame.getFontFamily();
+                textArea.setFont(new Font(EditorMenuBarHandler.this.currentFontFamily, Font.PLAIN, EditorMenuBarHandler.this.currentFontSize));
+                lineNumbers.setFont(new Font(EditorMenuBarHandler.this.currentFontFamily, Font.PLAIN, EditorMenuBarHandler.this.currentFontSize));
+                super.windowClosing(e);
+            }
+        });
+    }
+
+    private void resetFontSettings() {
+        this.currentFontSize = 14;
+        this.currentFontFamily = "monospaced";
+        textArea.setFont(new Font(this.currentFontFamily, Font.PLAIN, this.currentFontSize));
+        lineNumbers.setFont(new Font(this.currentFontFamily, Font.PLAIN, this.currentFontSize));
     }
 }

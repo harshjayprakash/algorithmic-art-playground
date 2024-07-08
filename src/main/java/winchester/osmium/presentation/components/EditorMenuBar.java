@@ -13,6 +13,10 @@ public class EditorMenuBar extends JMenuBar {
     private JMenuItem menuItemSave;
     private JMenuItem menuItemSaveAs;
     private JMenuItem menuItemClose;
+    private JMenuItem menuItemResetEditorFont;
+    private JMenuItem menuItemLargerFont;
+    private JMenuItem menuItemSmallerFont;
+    private JMenuItem menuItemChangeFontFamily;
     private JMenuItem menuItemSyntaxCheck;
     private JMenuItem menuItemRun;
     private JMenuItem menuItemRunSave;
@@ -40,6 +44,14 @@ public class EditorMenuBar extends JMenuBar {
         this.menuItemClose.setActionCommand("CLOSE_DOCUMENT");
 
         this.menuFormat = new JMenu("Format");
+        this.menuItemSmallerFont = new JMenuItem("Decrease Font Size");
+        this.menuItemSmallerFont.setActionCommand("FONT_SIZE_DECREASE");
+        this.menuItemLargerFont = new JMenuItem("Increase Font Size");
+        this.menuItemLargerFont.setActionCommand("FONT_SIZE_INCREASE");
+        this.menuItemChangeFontFamily = new JMenuItem("Change Font Family");
+        this.menuItemChangeFontFamily.setActionCommand("CHANGE_FONT");
+        this.menuItemResetEditorFont = new JMenuItem("Reset Font Preferences");
+        this.menuItemResetEditorFont.setActionCommand("RESET_FONT");
 
         this.menuRun = new JMenu("Run");
         this.menuItemSyntaxCheck = new JMenuItem("Syntax Check");
@@ -64,6 +76,10 @@ public class EditorMenuBar extends JMenuBar {
         this.menuFile.add(this.menuItemSaveAs);
         this.menuFile.add(this.menuItemClose);
         this.add(this.menuFile);
+        this.menuFormat.add(this.menuItemLargerFont);
+        this.menuFormat.add(this.menuItemSmallerFont);
+        this.menuFormat.add(this.menuItemChangeFontFamily);
+        this.menuFormat.add(this.menuItemResetEditorFont);
         this.add(this.menuFormat);
         this.menuRun.add(this.menuItemSyntaxCheck);
         this.menuRun.add(this.menuItemRun);
@@ -81,6 +97,10 @@ public class EditorMenuBar extends JMenuBar {
         this.menuItemSave.addActionListener(handler);
         this.menuItemSaveAs.addActionListener(handler);
         this.menuItemClose.addActionListener(handler);
+        this.menuItemLargerFont.addActionListener(handler);
+        this.menuItemSmallerFont.addActionListener(handler);
+        this.menuItemChangeFontFamily.addActionListener(handler);
+        this.menuItemResetEditorFont.addActionListener(handler);
         this.menuItemSyntaxCheck.addActionListener(handler);
         this.menuItemRun.addActionListener(handler);
         this.menuItemRunSave.addActionListener(handler);

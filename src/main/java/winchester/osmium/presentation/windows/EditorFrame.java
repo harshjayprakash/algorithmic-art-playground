@@ -47,6 +47,7 @@ public class EditorFrame extends JFrame {
         this.editorMenuBar.setHandlers(new EditorMenuBarHandler(
                 this.editorMenuBar,
                 this.editorTextArea.getEditableTextArea(),
+                this.editorTextArea.getLineNumbersTextArea(),
                 this.editorStatusBar.getStatusLabel()));
         this.editorTextArea.setHandlers(new EditorTextAreaHandler(
                 this.editorTextArea.getLineNumbersTextArea(),
