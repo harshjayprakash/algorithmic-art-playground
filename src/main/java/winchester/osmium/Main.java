@@ -3,7 +3,7 @@ package winchester.osmium;
 import winchester.osmium.core.Program;
 
 /**
- * The main class that contains the entrypoint of the program.
+ * The main class contains the entrypoint of the program.
  */
 public class Main {
 
