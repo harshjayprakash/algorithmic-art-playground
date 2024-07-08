@@ -25,11 +25,18 @@ public class FunctionListFrame extends JFrame {
         this.textArea.setEditable(false);
         this.textArea.setText(
                 """
-                Defining a Variable:
+                Assignment
                 
-                <variable-name>: Integer.
+                <variable-name> := <int-number>;
                 
                 You can only define integer types.
+                
+                Functions
+                
+                Position(<x>, <y>);
+                Move(<x>, <y>);
+                
+                
                 """);
 
         this.scrollPane.setViewportView(this.textArea);
