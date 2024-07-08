@@ -20,5 +20,6 @@ public class OutputCanvas extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        this.interpreter.execute(g);
     }
 }
