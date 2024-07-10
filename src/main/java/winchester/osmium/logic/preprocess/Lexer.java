@@ -76,7 +76,7 @@ public class Lexer {
 
     private void addTokenFromStringBuilder(StringBuilder stringBuilder) {
         if (!stringBuilder.isEmpty()) {
-            if (stringBuilder.toString().matches("[0-9+]")) {
+            if (stringBuilder.toString().matches("[0-9]+")) {
                 this.tokens.add(new Token(TokenType.NUMBER, stringBuilder.toString()));
             }
             else {
