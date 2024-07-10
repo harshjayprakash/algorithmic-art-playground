@@ -35,8 +35,22 @@ public class FunctionListFrame extends JFrame {
                 
                 Position(<x>, <y>);
                 Move(<x>, <y>);
+                Rect(<x>, <y>, <width>, <height>;
                 
+                Loop
                 
+                For <variable-name> := <start> to | downto <end>
+                begin
+                    <statements>
+                end;
+                
+                If statements
+                
+                If <variable> <equality-symbol> <number> then
+                begin
+                end;
+                
+                There is no else statement available.
                 """);
 
         this.scrollPane.setViewportView(this.textArea);
