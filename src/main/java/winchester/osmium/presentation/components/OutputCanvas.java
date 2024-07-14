@@ -7,11 +7,9 @@ import winchester.osmium.logic.Interpreter;
 import java.awt.*;
 
 public class OutputCanvas extends JPanel {
-    private final String code;
     private final Interpreter interpreter;
 
     public OutputCanvas(String code) {
-        this.code = code;
         this.interpreter = new Interpreter(code);
         this.interpreter.runLexer();
         this.interpreter.runParser();
@@ -20,6 +18,11 @@ public class OutputCanvas extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        this.interpreter.execute(g);
+        try {
+            this.interpreter.execute(g);
+        }
+        catch (Exception exception) {
+            JOptionPane.showMessageDialog(this, "Failure to create art: " + exception.getMessage());
+        }
     }
 }
