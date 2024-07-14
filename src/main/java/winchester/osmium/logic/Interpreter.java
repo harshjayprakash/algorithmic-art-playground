@@ -39,13 +39,13 @@ public class Interpreter {
         }
     }
 
-    public void execute(Graphics output) {
+    public void execute(Graphics output) throws Exception {
         Executer executer = new Executer(output);
         for (Statement statement : statements) {
             switch (statement.getStatementType()) {
                 case VARIABLE_ASSIGNMENT -> executer.executeVariableAssignment(statement);
                 case FUNCTION_CALL -> executer.executeFunctionCall(statement);
-                default -> System.err.println("Error executing.");
+                default -> throw new Exception("Error Executing");
             }
         }
     }
