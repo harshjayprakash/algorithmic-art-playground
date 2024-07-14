@@ -1,6 +1,6 @@
 package winchester.osmium.logic.def;
 
-public class SymbolObject {
+public abstract class SymbolObject {
     protected final String name;
 
     public SymbolObject(String name) {
