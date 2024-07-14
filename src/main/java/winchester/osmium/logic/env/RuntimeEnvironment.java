@@ -3,7 +3,6 @@ package winchester.osmium.logic.env;
 import winchester.osmium.logic.def.VariableObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Optional;
 
 public class RuntimeEnvironment {
