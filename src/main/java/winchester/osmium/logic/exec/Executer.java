@@ -55,12 +55,12 @@ public class Executer {
                 args.add(statement.getTokens()[6].getValue());
                 args.add(statement.getTokens()[8].getValue());
 
-                int x_ = Integer.parseInt(args.get(0));
-                int y_ = Integer.parseInt(args.get(1));
-                int width_ = Integer.parseInt(args.get(2));
-                int height_ = Integer.parseInt(args.get(3));
+                int rectX = Integer.parseInt(args.get(0));
+                int rectY = Integer.parseInt(args.get(1));
+                int rectWidth = Integer.parseInt(args.get(2));
+                int rectHeight = Integer.parseInt(args.get(3));
 
-                outputGraphics.drawRect(x_, y_, width_, height_);
+                outputGraphics.drawRect(rectX, rectY, rectWidth, rectHeight);
             }
         }
     }
