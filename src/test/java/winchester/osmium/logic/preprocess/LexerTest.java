@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import winchester.osmium.logic.classification.Token;
 import winchester.osmium.logic.classification.TokenType;
+import winchester.osmium.test.TestingData;
 
 import java.util.List;
 
@@ -12,59 +13,31 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LexerTest {
     private static Lexer lexer;
-    private Token[] tokens;
-    private final Token[] tokensToCompare = new Token[] {
-            new Token(TokenType.SYMBOL, "X"),
-            new Token(TokenType.COLON, ":"),
-            new Token(TokenType.EQUALS, "="),
-            new Token(TokenType.NUMBER, "4"),
-            new Token(TokenType.SYMBOL, "Position"),
-            new Token(TokenType.OPEN_PAREN, "("),
-            new Token(TokenType.NUMBER, "0"),
-            new Token(TokenType.COMMA, ","),
-            new Token(TokenType.NUMBER, "0"),
-            new Token(TokenType.CLOSE_PAREN, ")"),
-            new Token(TokenType.SEMICOLON, ";"),
-            new Token(TokenType.SYMBOL, "Move"),
-            new Token(TokenType.OPEN_PAREN, "("),
-            new Token(TokenType.NUMBER, "34"),
-            new Token(TokenType.COMMA, ","),
-            new Token(TokenType.NUMBER, "433"),
-            new Token(TokenType.CLOSE_PAREN, ")"),
-            new Token(TokenType.SEMICOLON, ";"),
-            new Token(TokenType.SYMBOL, "Move"),
-            new Token(TokenType.OPEN_PAREN, "("),
-            new Token(TokenType.NUMBER, "-5"),
-            new Token(TokenType.COMMA, ","),
-            new Token(TokenType.NUMBER, "2"),
-            new Token(TokenType.CLOSE_PAREN, ")"),
-            new Token(TokenType.SEMICOLON, ";"),
-    };
+    private static Token[] tokens;
 
     @BeforeAll
     static void beforeEachTest() {
-        lexer = new Lexer(
-                """
-                X := 4;
-                
-                Position(0, 0);
-                Move(34, 433);
-                Move(-5, 2);
-                """
-        );
+        lexer = new Lexer(TestingData.getInstance().getTestCode());
     }
 
     @Test
     void testAfterTokenization() {
         try { lexer.convertToTokens(); }
         catch (Exception exception) { fail(); }
-        this.tokens = lexer.getTokens();
-        assertNotNull(this.tokens);
+        tokens = lexer.getTokens();
+        assertNotNull(tokens);
     }
 
     @Test
     void testIndividualTokens() {
-        assertArrayEquals(tokensToCompare, tokens);
+        if (tokens.length != TestingData.getInstance().getTestCodeTokens().length) {
+            fail();
+        }
+
+        for (int index = 0; index < tokens.length; index++) {
+            assertEquals(TestingData.getInstance().getTestCodeTokens()[index].getValue(), tokens[index].getValue());
+            assertEquals(TestingData.getInstance().getTestCodeTokens()[index].getTokenType(), tokens[index].getTokenType());
+        }
     }
 
 }
