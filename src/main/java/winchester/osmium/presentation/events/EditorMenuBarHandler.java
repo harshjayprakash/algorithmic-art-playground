@@ -104,6 +104,10 @@ public class EditorMenuBarHandler implements ActionListener {
             file = fileChooser.getSelectedFile();
         }
 
+        if (returnValue == JFileChooser.CANCEL_OPTION) {
+            return;
+        }
+
         if (file == null) {
             return;
         }
@@ -172,6 +176,10 @@ public class EditorMenuBarHandler implements ActionListener {
 
         if (retrieval == JFileChooser.APPROVE_OPTION) {
             file = fileChooser.getSelectedFile();
+        }
+
+        if (retrieval == JFileChooser.CANCEL_OPTION) {
+            return;
         }
 
         if (file == null) {
