@@ -2,11 +2,11 @@ package winchester.osmium.presentation.windows;
 
 import javax.swing.*;
 
-public class FunctionListFrame extends JFrame {
+public class HelpFrame extends JFrame {
     private JScrollPane scrollPane;
     private JTextArea textArea;
 
-    public FunctionListFrame() {
+    public HelpFrame() {
         super();
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(800, 600);

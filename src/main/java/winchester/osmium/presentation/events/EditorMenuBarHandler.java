@@ -8,7 +8,7 @@ import winchester.osmium.core.Metadata;
 import winchester.osmium.presentation.components.EditorMenuBar;
 import winchester.osmium.presentation.windows.AboutFrame;
 import winchester.osmium.presentation.windows.FontChangerFrame;
-import winchester.osmium.presentation.windows.FunctionListFrame;
+import winchester.osmium.presentation.windows.HelpFrame;
 import winchester.osmium.presentation.windows.OutputFrame;
 
 import javax.swing.*;
@@ -197,7 +197,7 @@ public class EditorMenuBarHandler implements ActionListener {
     }
 
     private void displayFunctionList() {
-        FunctionListFrame functionListFrame = new FunctionListFrame();
+        HelpFrame functionListFrame = new HelpFrame();
         functionListFrame.setVisible(true);
     }
 
