@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 public class RuntimeEnvironment {
-    ArrayList<VariableObject<Integer>> runtimeVariables;
+    private final ArrayList<VariableObject<Integer>> runtimeVariables;
     
     public RuntimeEnvironment() {
         this.runtimeVariables = new ArrayList<>();
