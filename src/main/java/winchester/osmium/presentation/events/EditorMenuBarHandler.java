@@ -128,6 +128,7 @@ public class EditorMenuBarHandler implements ActionListener {
         }
         this.currentTextFile = file.getPath();
         this.statusLabel.setText("Successfully Opened File: " + this.currentTextFile);
+        this.menuBar.enableSaveItem();
     }
 
     private void runDocument() {
