@@ -5,6 +5,7 @@ import winchester.osmium.logic.classification.Token;
 import winchester.osmium.logic.classification.TokenType;
 import winchester.osmium.logic.env.RuntimeEnvironment;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -23,20 +24,22 @@ public class Executer {
 
     public void executeFunctionCall(Statement statement) {
         String symbolName = statement.getTokens()[0].getValue();
-        ArrayList<String> args = new ArrayList<>();
 
         Integer[] intArgs = detectParametersInFunctionCall(statement).clone();
         for (Integer i : intArgs) {
             System.out.println(i);
         }
 
-        switch (symbolName) {
-            case "Move", "Position" -> {
+        switch (symbolName.toLowerCase()) {
+            case "move", "position" -> {
                 if (intArgs.length != 2) {
-                    System.err.println("Invalid number of arguments provided in function");
+                    JOptionPane.showMessageDialog(null, String.format(
+                            "Invalid number of arguments provided in function '%s'. 2 arguments are required. Please refer to the help guide.",
+                            symbolName)
+                    );
                 }
 
-                if (symbolName.equalsIgnoreCase("Position")) {
+                if (symbolName.equalsIgnoreCase("position")) {
                     currentXPosition = intArgs[0];
                     currentYPosition = intArgs[1];
                 }
@@ -49,16 +52,18 @@ public class Executer {
                     currentYPosition = projectedYPosition;
                 }
             }
-            case "Rect" -> {
-                args.add(statement.getTokens()[2].getValue());
-                args.add(statement.getTokens()[4].getValue());
-                args.add(statement.getTokens()[6].getValue());
-                args.add(statement.getTokens()[8].getValue());
+            case "rect" -> {
+                if (intArgs.length != 4) {
+                    JOptionPane.showMessageDialog(null, String.format(
+                            "Invalid number of arguments provided in function '%s'. 4 arguments are required. Please refer to the help guide.",
+                            symbolName)
+                    );
+                }
 
-                int rectX = Integer.parseInt(args.get(0));
-                int rectY = Integer.parseInt(args.get(1));
-                int rectWidth = Integer.parseInt(args.get(2));
-                int rectHeight = Integer.parseInt(args.get(3));
+                int rectX = intArgs[0];
+                int rectY = intArgs[1];
+                int rectWidth = intArgs[2];
+                int rectHeight = intArgs[3];
 
                 outputGraphics.drawRect(rectX, rectY, rectWidth, rectHeight);
             }
