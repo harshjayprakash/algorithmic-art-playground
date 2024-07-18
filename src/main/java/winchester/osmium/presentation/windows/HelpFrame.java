@@ -30,6 +30,7 @@ public class HelpFrame extends JFrame {
                 <style>
                     code { font-size: 2rem; }
                 </style>
+                
                 <h1>Variable Assignment</h1>
                 <code>var := 94;</code>
                 <p>
@@ -73,6 +74,8 @@ public class HelpFrame extends JFrame {
                 </ul>
                 </p>
                 
+                <h1>Notes</h1>
+                <p>This language is not case sensitive but is very limited with functionality</p>
                 """);
 
         this.scrollPane.setViewportView(this.textArea);
