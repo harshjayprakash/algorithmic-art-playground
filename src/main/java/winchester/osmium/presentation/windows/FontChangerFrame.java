@@ -44,9 +44,7 @@ public class FontChangerFrame extends JFrame {
     }
 
     private void initialiseHandlers() {
-        this.acceptButton.addActionListener((e) -> {
-            this.dispose();
-        });
+        this.acceptButton.addActionListener((e) -> this.dispose());
     }
 
     public String getFontFamily() {
