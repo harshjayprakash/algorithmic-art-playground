@@ -1,5 +1,7 @@
 package winchester.osmium.test;
 
+import winchester.osmium.logic.classification.Statement;
+import winchester.osmium.logic.classification.StatementType;
 import winchester.osmium.logic.classification.Token;
 import winchester.osmium.logic.classification.TokenType;
 
@@ -32,6 +34,39 @@ public class TestingData {
             new Token(TokenType.SEMICOLON, ";"),
     };
 
+    private final Statement[] testCodeStatements = new Statement[] {
+            new Statement() {{
+                addToken(new Token(TokenType.SYMBOL, "X")); addToken(new Token(TokenType.COLON, ":"));
+                addToken(new Token(TokenType.EQUALS, "=")); addToken(new Token(TokenType.NUMBER, "4"));
+                addToken(new Token(TokenType.SEMICOLON, ";")); setStatementType(StatementType.VARIABLE_ASSIGNMENT);
+            }},
+            new Statement() {{
+                addToken(new Token(TokenType.SYMBOL, "Position")); addToken(new Token(TokenType.OPEN_PAREN, "("));
+                addToken(new Token(TokenType.NUMBER, "0")); addToken(new Token(TokenType.COMMA, ","));
+                addToken(new Token(TokenType.NUMBER, "0")); addToken(new Token(TokenType.CLOSE_PAREN, ")"));
+                addToken(new Token(TokenType.SEMICOLON, ";")); setStatementType(StatementType.FUNCTION_CALL);
+            }},
+            new Statement() {{
+                addToken(new Token(TokenType.SYMBOL, "Move")); addToken(new Token(TokenType.OPEN_PAREN, "("));
+                addToken(new Token(TokenType.SYMBOL, "X")); addToken(new Token(TokenType.COMMA, ","));
+                addToken(new Token(TokenType.NUMBER, "6")); addToken(new Token(TokenType.CLOSE_PAREN, ")"));
+                addToken(new Token(TokenType.SEMICOLON, ";")); setStatementType(StatementType.FUNCTION_CALL);
+            }},
+            new Statement() {{
+                addToken(new Token(TokenType.SYMBOL, "Move")); addToken(new Token(TokenType.OPEN_PAREN, "("));
+                addToken(new Token(TokenType.NUMBER, "34")); addToken(new Token(TokenType.COMMA, ","));
+                addToken(new Token(TokenType.NUMBER, "433")); addToken(new Token(TokenType.CLOSE_PAREN, ")"));
+                addToken(new Token(TokenType.SEMICOLON, ";")); setStatementType(StatementType.FUNCTION_CALL);
+            }},
+            new Statement() {{
+                addToken(new Token(TokenType.SYMBOL, "Move")); addToken(new Token(TokenType.OPEN_PAREN, "("));
+                addToken(new Token(TokenType.MINUS, "-")); addToken(new Token(TokenType.NUMBER, "5"));
+                addToken(new Token(TokenType.COMMA, ",")); addToken(new Token(TokenType.NUMBER, "2"));
+                addToken(new Token(TokenType.CLOSE_PAREN, ")")); addToken(new Token(TokenType.SEMICOLON, ";"));
+                setStatementType(StatementType.FUNCTION_CALL);
+            }}
+    };
+
     private TestingData() {}
 
     public static TestingData getInstance() {
@@ -44,6 +79,10 @@ public class TestingData {
 
     public Token[] getTestCodeTokens() {
         return this.testCodeTokens;
+    }
+
+    public Statement[] getTestCodeStatements() {
+        return this.testCodeStatements;
     }
 
 }
