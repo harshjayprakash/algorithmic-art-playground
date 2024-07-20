@@ -13,7 +13,6 @@ public class HelpFrame extends JFrame {
         this.setTitle("Help");
 
         this.initialiseComponents();
-        this.initialiseHandlers();
     }
 
     private void initialiseComponents() {
@@ -80,9 +79,5 @@ public class HelpFrame extends JFrame {
 
         this.scrollPane.setViewportView(this.textArea);
         this.add(this.scrollPane);
-    }
-
-    private void initialiseHandlers() {
-
     }
 }
