@@ -8,11 +8,17 @@ import java.awt.*;
 
 public class OutputCanvas extends JPanel {
     private final Interpreter interpreter;
+    private boolean errorOccurred;
 
     public OutputCanvas(String code) {
+        this.errorOccurred = false;
         this.interpreter = new Interpreter(code);
         this.interpreter.runLexer();
         this.interpreter.runParser();
+    }
+
+    public boolean errorOccurred() {
+        return this.errorOccurred;
     }
 
     @Override
@@ -22,7 +28,8 @@ public class OutputCanvas extends JPanel {
             this.interpreter.execute(g);
         }
         catch (Exception exception) {
-            JOptionPane.showMessageDialog(this, "Failure to create art: " + exception.getMessage());
+            JOptionPane.showMessageDialog(null, "Failure to create art: " + exception.getMessage());
+            this.errorOccurred = true;
         }
     }
 }

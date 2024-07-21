@@ -16,11 +16,18 @@ public class OutputFrame extends JFrame {
         this.inputCode = code;
 
         this.initialiseComponents();
+        this.checkForRenderingError();
     }
 
     private void initialiseComponents() {
         this.drawingCanvas = new OutputCanvas(inputCode);
         this.add(this.drawingCanvas);
+    }
+
+    private void checkForRenderingError() {
+        if (this.drawingCanvas.errorOccurred()) {
+            this.dispose();
+        }
     }
 
 }
