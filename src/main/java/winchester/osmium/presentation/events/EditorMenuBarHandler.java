@@ -12,6 +12,8 @@ import winchester.osmium.presentation.windows.HelpFrame;
 import winchester.osmium.presentation.windows.OutputFrame;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -21,9 +23,11 @@ public class EditorMenuBarHandler implements ActionListener {
     private final JTextArea textArea;
     private final JTextArea lineNumbers;
     private final JLabel statusLabel;
+    private final FileNameExtensionFilter filter;
     private String currentTextFile;
     private String currentFontFamily;
     private int currentFontSize;
+
 
     @Contract(pure = true)
     public EditorMenuBarHandler(EditorMenuBar menuBar, JTextArea editableTextArea, JTextArea lineNumbersTextArea,
@@ -33,6 +37,7 @@ public class EditorMenuBarHandler implements ActionListener {
         this.textArea = editableTextArea;
         this.lineNumbers = lineNumbersTextArea;
         this.statusLabel = statusLabel;
+        this.filter = new FileNameExtensionFilter("TEXT FILES", "txt", "text");
         this.currentFontFamily = "monospaced";
         this.currentFontSize = 14;
         this.currentTextFile = "null";
@@ -97,6 +102,7 @@ public class EditorMenuBarHandler implements ActionListener {
 
     private void openDocument() {
         JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileFilter(filter);
         int returnValue = fileChooser.showOpenDialog(this.textArea.getParent());
         File file = null;
 
@@ -171,7 +177,7 @@ public class EditorMenuBarHandler implements ActionListener {
 
     private void saveNewDocument() {
         JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        fileChooser.setFileFilter(filter);
         int retrieval = fileChooser.showSaveDialog(this.textArea.getParent());
         File file = null;
 
@@ -192,7 +198,7 @@ public class EditorMenuBarHandler implements ActionListener {
             return;
         }
 
-        this.currentTextFile = file != null ? file.getPath() : "null";
+        this.currentTextFile = file != null ? file.getPath() + ".txt" : "null";
 
         this.saveDocument();
 
