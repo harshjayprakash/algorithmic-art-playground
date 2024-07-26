@@ -2,6 +2,9 @@
 
 > A simple tool to experiment generating art via programming locally.
 
+> [!NOTE]
+> This program was part of my dissertation/capstone submission in July 2024.
+
 ![Screenshot of Program](./doc/program-screenshot.png)
 
 ## Compilation
