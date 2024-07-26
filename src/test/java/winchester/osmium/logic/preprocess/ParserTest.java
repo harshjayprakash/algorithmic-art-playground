@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Test;
 import winchester.osmium.logic.classification.Statement;
 import winchester.osmium.test.TestingData;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ParserTest {
