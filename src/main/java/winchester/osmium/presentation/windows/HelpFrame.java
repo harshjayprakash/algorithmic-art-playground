@@ -36,7 +36,7 @@ public class HelpFrame extends JFrame {
                     Defining variables allows values to be reused throughout the program.
                     <ul>
                     <li>The variable must be defined before use.</li>
-                    <li>You may only define Integers (whole numbers)</li>
+                    <li>You may only define unsigned Integers (whole numbers)</li>
                     <li>Variable names must only contains letters, numbers (not at the start) or underscores</li>
                     <li>Variable names must not be a keyword: for, if, else, begin, end, to, downto, then, do</li>
                     </ul>
