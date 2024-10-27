@@ -1,6 +1,6 @@
 ![Algorithmic Art Playground Banner](./doc/algo-art-playground-banner.jpg)
 
-# Generative Art Playground
+# Algorithmic Art Playground
 
 > A simple tool to experiment generating art via programming locally.
 
