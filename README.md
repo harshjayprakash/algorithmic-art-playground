@@ -5,7 +5,7 @@
 > A simple tool to experiment generating art via programming locally.
 
 This program was part of my dissertation/capstone submission in July 2024. This contains
-the beginnings of an interpreter however, it has not been fully compeleted. Work is still
+the beginnings of an interpreter however, it has not been fully completed. Work is still
 in progress to improve the program.
 
 ![Screenshot of Program](./doc/program-screenshot.png)
