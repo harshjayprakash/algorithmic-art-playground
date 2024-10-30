@@ -1,4 +1,4 @@
-![Algorithmic Art Playground Banner](./doc/algo-art-playground-banner.jpg)
+![Algorithmic Art Playground Banner](./doc/algorithmic-art-banner.png)
 
 # Algorithmic Art Playground
 
