@@ -1,32 +1,38 @@
-![Algorithmic Art Playground Banner](./doc/algorithmic-art-banner.png)
-
 # Algorithmic Art Playground
 
-> A simple tool to experiment generating art via programming locally.
+> ![INFO]
+> This project is still in development, despite finishing the dissertation.
 
-This program was part of my dissertation/capstone submission in July 2024. This contains
-the beginnings of an interpreter however, it has not been fully completed. Work is still
-in progress to improve the program.
+![Banner (Decorative)](./doc/banner.png)
 
-![Screenshot of Program](./doc/program-screenshot.png)
+## Overview
 
-## Compilation
+The "Algorithmic Art Playground" is an application designed for users to experiment with
+generating art through the power of programming. As a part of my dissertation project, I
+developed this tool as both an educational resource for those learning about algmorithmic
+approaches to creativity and a personal cavas where you can experiment with code-based
+visuals on your local desktop machine.
 
-This project was created using the Maven build tool. This can be compiled into a JAR file.
+## Compilation and Execution
+
+The Maven build tool was utilised for handling dependencies, development and deployment.
+Most IDEs, such as IntelliJ IDEA, VSCode and NetBeans support Maven. This project requires
+Java 17 or newer.
+
+## Usage
+
+### Editor Window
+
+### Output Window
+
+### Help Window
+
+## Known Issues and Limitations
 
 
-## Requirements
 
-- Java Version 17 or newer.
-- At least 1.6 GHz Processor.
-- At least 2GB Memory.
+## References
 
-## Limitations and Known Issues
-
-- Variables can only be unsigned integers.
-- Cannot call functions inside of functions.
-- Conditional statements are not possible.
-- Iterative statements are not possible.
-- There are only three functions available: Position, Move, Rect.
-- Error Messages are not informative enough.
-- Error Painting Output Window when running input.
+* Flatlaf (under Apache 2.0): <https://www.formdev.com/flatlaf/>
+* JUnit (under EPL 2.0): <https://junit.org/junit5/>
+* JetBrains Java Annotations (under Apache 2.0): <https://github.com/JetBrains/java-annotations>
