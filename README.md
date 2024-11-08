@@ -1,6 +1,6 @@
 # Algorithmic Art Playground
 
-> ![INFO]
+> ![NOTE]
 > This project is still in development, despite finishing the dissertation.
 
 ![Banner (Decorative)](./doc/banner.png)
