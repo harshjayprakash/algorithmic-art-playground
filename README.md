@@ -29,7 +29,18 @@ Java 17 or newer.
 
 ## Known Issues and Limitations
 
+* The program supports only unsigned integers as variables, and does not support calling
+functions inside of functions, conditional statements, iterative statements, or using more
+advanced features such as mathematical expressions or control flow construction.
+* The current only supports three basic functions: `Position`, `Move` and `Rect`. These
+functions allow you to manipulate a virtual canvas (the "generative art"). However, there
+are currently not advanced features in the program that would allow for more complex
+generative art creation.
+* Some known issues with the current version of AAP:
 
+  * Error messages are not informative enough, making it difficult to debug any iddues
+  that may arise during the execution of the program.
+  * The program sometimes output an error painting the output when running the input.
 
 ## References
 
