@@ -1,9 +1,9 @@
-# Algorithmic Art Playground
+# Algorithmic Art Playground (AAP)
+
+![Banner (Decorative)](./doc/banner.png)
 
 > [!NOTE]
 > This project is still in development, despite finishing the dissertation.
-
-![Banner (Decorative)](./doc/banner.png)
 
 ## Overview
 
@@ -23,9 +23,30 @@ Java 17 or newer.
 
 ### Editor Window
 
+AAP provides a basic "Editor Window", where users can craftcode snippets directly to
+produce art. The window features the use of the default monospace font based on the OS for
+easier readibility, as well as a panel denoting line numbers. A status bar is also
+featured, displaying information in a non-noisy manner.
+
+* Additionally, the user may change the font to their preference by typing the name of the
+font in the "Font Changer" window, found under the Format menu item.
+* The program supports the ability to save files (as a .txt file) and open existing files.
+
+![Editor Window Screenshot](./doc/aap-editor.PNG)
+
 ### Output Window
 
+The "Output Window" displays the result of art generation based on the user input. This
+window is not limited to one instance nor modal. This can easily be resized.
+
+![Output Window Screenshot](./doc/aap-output.PNG)
+
 ### Help Window
+
+The "Help Window" is a go-to resource for guidance. This contains a glossary of functions,
+each accompanied by a description. This does not require the internet to access.
+
+![Help Window Screenshot](./doc/aap-help.PNG)
 
 ## Known Issues and Limitations
 
@@ -41,6 +62,7 @@ generative art creation.
   * Error messages are not informative enough, making it difficult to debug any iddues
   that may arise during the execution of the program.
   * The program sometimes output an error painting the output when running the input.
+  * Some options presented within the menu bar may not be functional.
 
 ## References
 
