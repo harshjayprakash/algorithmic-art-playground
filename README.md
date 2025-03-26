@@ -1,6 +1,6 @@
 # Algorithmic Art Playground (AAP)
 
-![Banner (Decorative)](./doc/aap-banner.png)
+![Banner (Decorative)](./doc/aap-banner-raster.png)
 
 > [!NOTE]
 > This project is still in development, despite finishing the dissertation.
